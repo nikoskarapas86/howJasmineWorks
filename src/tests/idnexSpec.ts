@@ -1,5 +1,6 @@
 import arrays from "../utilities/arrays";
 import numbers from "../utilities/numbers";
+import countries from "../utilities/regions";
 import strings from "../utilities/strings";
 const numArr = [3, 4, 5, 6];
 const wordArr = ["cat", "dog", "rabbit", "bird"];
@@ -50,5 +51,13 @@ describe("test the addArr function", () => {
 describe("test the concatenate function", () => {
   it("should concatenate 2 arrays to not equal just 1", () => {
     expect(arrays.concatArr(numArr, wordArr)).not.toEqual(numArr);
+  });
+});
+it("should get basic data on the country canada", async () => {
+  const data = await countries.getCountry('canada');
+  expect(data).toEqual({
+    capital: 'Ottawa',
+    region: 'Americas',
+    numericCode: '124'
   });
 });
